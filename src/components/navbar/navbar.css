@@ -1,0 +1,21 @@
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navlink {
+	color: rgb(120, 120, 120);
+	font-size: 20px;
+	text-decoration: none;
+	margin: 35px;
+	transition: 200ms;
+}
+
+.navlink-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: rgb(60, 59, 59);
+    text-decoration: none;
+}
