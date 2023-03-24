@@ -1,0 +1,38 @@
+.cart {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    margin: auto;
+}
+
+.cart-item h2 {
+    margin: 10px 0;
+}
+
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+}
+
+.cart-item .price {
+    display: inline;
+    margin-left: 10px;
+}
+
+.left-info {
+    width: 200px;
+}
+
+.right-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100px;
+}

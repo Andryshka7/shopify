@@ -1,5 +1,4 @@
 import products from 'products'
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import ProductCard from './ProductCard'
 import './products.css'
 

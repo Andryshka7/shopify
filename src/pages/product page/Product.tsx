@@ -1,18 +1,23 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 import products from 'products'
 import Rating from './Rating'
 import './product.css'
+import { useAppDispatch } from 'hooks/storehooks'
+import { pushCartItems } from 'redux/cartSlice'
+import QuantitySelector from '../../components/quantity selector/QuantitySelector'
 
 const Product = () => {
+	const dispatch = useAppDispatch()
 	const [quantity, setQuantity] = useState<number>(1)
-	const { id } = useParams()
+	const params = useParams()
 
-	const product = products.find((i) => i.id === Number(id))
+	const product = products.find((i) => i.id === Number(params.id))
 	if (!product) return <></>
 
-	const { name, image, price, rating, reviews } = product
+	const { id, name, image, price, rating, reviews } = product
+	const increaseQuantity = () => quantity > 1 && setQuantity(quantity + 1)
+	const decreaseQuantity = () => setQuantity(quantity - 1)
 
 	return (
 		<div className='product-review'>
@@ -26,24 +31,21 @@ const Product = () => {
 					malesuada.
 				</p>
 				<h2 className='price'>${price}</h2>
-				<div className='quantity'>
-					<h3>Quantity:</h3>
-					<div className='quantity-content'>
-						<div
-							className='minus'
-							onClick={() => quantity > 1 && setQuantity((q) => q - 1)}
-							children={<AiOutlineMinus />}
-						/>
-						<div className='num'>{quantity}</div>
-						<div
-							className='plus'
-							onClick={() => setQuantity((q) => q + 1)}
-							children={<AiOutlinePlus />}
-						/>
-					</div>
-				</div>
+				<h3 className='quantity-name'>Quantity: </h3>
+				<QuantitySelector
+					quantity={quantity}
+					increaseQuantity={increaseQuantity}
+					decreaseQuantity={decreaseQuantity}
+				/>
 				<div className='buttons'>
-					<button className='toCart'>Add to cart</button>
+					<button
+						className='toCart'
+						onClick={() => {
+							dispatch(pushCartItems({ id, amount: quantity }))
+						}}
+					>
+						Add to cart
+					</button>
 					<button className='buy'>Buy now</button>
 				</div>
 			</div>

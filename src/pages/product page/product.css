@@ -26,42 +26,15 @@
 	color: red;
 }
 
-.quantity {
-	display: flex;
-	gap: 20px;
-	align-items: center;
-}
-.quantity > h3 {
-	margin: 0;
-}
-.quantity-content {
-	display: flex;
-	border: 1px solid gray;
-}
-.quantity-content .minus,
-.plus,
-.num {
-	width: 30px;
-	height: 30px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.quantity-content .plus {
-	color: rgb(49, 168, 49);
-}
-.quantity-content .minus {
-	color: #f02d34;
-}
-.quantity-content .num {
-	border-left: 1px solid gray;
-	border-right: 1px solid gray;
-	font-size: 18px;
-}
-
 .product-review .rating {
 	display: flex;
 	align-items: center;
+}
+
+.quantity-name {
+	display: inline;
+	margin: 0 15px 0 5px;
+	color: rgb(67, 67, 67);
 }
 
 .buttons {

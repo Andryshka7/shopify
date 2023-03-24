@@ -9,7 +9,7 @@ const Rating = ({ rating, reviews }: { rating: number; reviews: number }) => {
 			{rating > 2 ? <AiFillStar color='red' /> : <AiOutlineStar color='red' />}
 			{rating > 3 ? <AiFillStar color='red' /> : <AiOutlineStar color='red' />}
 			{rating > 4 ? <AiFillStar color='red' /> : <AiOutlineStar color='red' />}
-			<text>{`(${reviews})`}</text>
+			<span>{`(${reviews})`}</span>
 		</div>
 	)
 }

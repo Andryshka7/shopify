@@ -8,6 +8,7 @@ import Product from 'pages/product page/Product'
 import About from 'pages/about/About'
 import Conact from 'pages/contact/Contact'
 import products from 'products'
+import Cart from 'pages/cart page/Cart'
 
 const api = 'https://fakestoreapi.com/products'
 
@@ -35,6 +36,7 @@ const App = () => {
 					</Route>
 					<Route path='about' element={<About />} />
 					<Route path='contact' element={<Conact />} />
+					<Route path='cart' element={<Cart />} />
 				</Routes>
 			</BrowserRouter>
 			<Footer />
