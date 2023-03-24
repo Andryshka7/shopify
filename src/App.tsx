@@ -31,13 +31,7 @@ const App = () => {
 					<Route path='/' element={<Home />} />
 					<Route path='products'>
 						<Route index element={<Products />}></Route>
-						{products.map((product) => (
-							<Route
-								path={`:id`}
-								element={<Product {...product} />}
-								key={'p' + product.id}
-							/>
-						))}
+						<Route path={`:id`} element={<Product />} />
 					</Route>
 					<Route path='about' element={<About />} />
 					<Route path='contact' element={<Conact />} />

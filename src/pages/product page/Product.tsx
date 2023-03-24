@@ -1,13 +1,11 @@
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { IProduct } from 'types/product'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
-import ProductCard from 'pages/products/ProductCard'
 import products from 'products'
 import Rating from './Rating'
 import './product.css'
 
-const Product = ({}: IProduct) => {
+const Product = () => {
 	const [quantity, setQuantity] = useState<number>(1)
 	const { id } = useParams()
 
