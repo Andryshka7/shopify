@@ -5,13 +5,15 @@
 
 .product {
 	width: 200px;
-	height: 210px;
+	height: 230px;
 	display: inline-block;
 	margin: 20px;
 	transition: 200ms;
+	color: black;
+	text-decoration: none;
 }
 
-.info {
+.product .info {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -22,8 +24,21 @@
 }
 
 .product img {
+	background: #00000037;
+	border-radius: 30px;
 	width: 200px;
 	height: 200px;
+}
+
+.product-name {
+	font-weight: 600;
+	margin: 0 10px;
+}
+
+.product-price {
+	font-weight: 700;
+	font-size: 20px;
+	margin: 0 10px;
 }
 
 .product:hover {

@@ -25,6 +25,7 @@ const Navbar = () => {
 						className='navlink'
 						style={{ color: id === selected ? 'black' : '' }}
 						onClick={() => setSelected(id)}
+						key={name}
 					>
 						{name}
 					</NavLink>
