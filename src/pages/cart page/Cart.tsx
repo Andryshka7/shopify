@@ -7,12 +7,21 @@ const Cart = () => {
 	console.log(cart)
 
 	return (
-		<div className='cart'>
-			{cart.map((item) => (
-				<CartItem {...item} key={'c' + item.id}/>
-			))}
-			<hr />
-		</div>
+		<>
+			{cart.length ? (
+				<div className='cart'>
+					{cart.map((item) => (
+						<CartItem {...item} key={'c' + item.id} />
+					))}
+					<hr />
+				</div>
+			) : (
+				<h1 className='cart-info'>
+					Your cart is empty!
+					<hr />
+				</h1>
+			)}
+		</>
 	)
 }
 

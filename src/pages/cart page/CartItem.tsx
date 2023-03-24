@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import products from 'products'
 import { ICartItem } from 'types/cartItem'
-import { TiDeleteOutline } from 'react-icons/ti'
 import QuantitySelector from 'components/quantity selector/QuantitySelector'
+import { useAppDispatch } from 'hooks/storehooks'
+import { removeCartItem } from 'redux/cartSlice'
 
 const CartItem = ({ id, amount: n }: ICartItem) => {
+	const dispatch = useAppDispatch()
 	const [amount, setAmount] = useState<number>(n)
 
 	const product = products.find((product) => product.id === id)
@@ -12,7 +14,7 @@ const CartItem = ({ id, amount: n }: ICartItem) => {
 
 	const { name, image, price } = product
 	const increaseQuantity = () => setAmount(amount + 1)
-	const decreaseQuantity = () => setAmount(amount - 1)
+	const decreaseQuantity = () => (amount > 1 ? setAmount(amount - 1) : dispatch(removeCartItem(id)))
 
 	return (
 		<div className='cart-item'>
@@ -26,9 +28,9 @@ const CartItem = ({ id, amount: n }: ICartItem) => {
 				/>
 				<h3 className='price'>${(price * amount).toFixed(2)}</h3>
 			</div>
-			<div className='right-info'>
-				<TiDeleteOutline color='red' size={25} />
-			</div>
+			<button className='remove-item' onClick={() => dispatch(removeCartItem(id))}>
+				REMOVE
+			</button>
 		</div>
 	)
 }

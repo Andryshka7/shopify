@@ -16,8 +16,8 @@ const Product = () => {
 	if (!product) return <></>
 
 	const { id, name, image, price, rating, reviews } = product
-	const increaseQuantity = () => quantity > 1 && setQuantity(quantity + 1)
-	const decreaseQuantity = () => setQuantity(quantity - 1)
+	const increaseQuantity = () => setQuantity(quantity + 1)
+	const decreaseQuantity = () => quantity > 1 && setQuantity(quantity - 1)
 
 	return (
 		<div className='product-review'>

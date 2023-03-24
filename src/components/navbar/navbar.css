@@ -19,3 +19,8 @@ nav {
     color: rgb(60, 59, 59);
     text-decoration: none;
 }
+
+nav .cart {
+    width: 35px;
+    height: 35px;
+}

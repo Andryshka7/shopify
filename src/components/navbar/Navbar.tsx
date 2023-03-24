@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
-import CartIcon from './cart icon/CartIcon'
+import cart from 'assets/shopping-cart.png'
 import './navbar.css'
 
 const navigators = [
@@ -31,7 +31,9 @@ const Navbar = () => {
 					</NavLink>
 				))}
 			</div>
-			<CartIcon />
+			<NavLink to={'cart'}>
+				<img src={cart} alt='cart' className='cart' />
+			</NavLink>
 		</nav>
 	)
 }
