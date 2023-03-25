@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
-import cart from 'assets/shopping-cart.png'
+import { useAppSelector } from 'hooks/storehooks'
+import cartIcon from 'assets/shopping-cart.png'
 import './navbar.css'
 
 const navigators = [
@@ -11,11 +12,17 @@ const navigators = [
 ]
 
 const Navbar = () => {
+	const { cart } = useAppSelector((store) => store)
 	const [selected, setSelected] = useState<number | null>(null)
 
 	return (
 		<nav>
-			<NavLink to='/' className='navlink-name' onClick={() => setSelected(1)}>
+			<NavLink
+				to='/'
+				className='navlink-name'
+				onClick={() => setSelected(1)}
+				style={{ textDecoration: 'none' }}
+			>
 				<h2>Shopify</h2>
 			</NavLink>
 			<div>
@@ -23,7 +30,7 @@ const Navbar = () => {
 					<NavLink
 						to={link}
 						className='navlink'
-						style={{ color: id === selected ? 'black' : '' }}
+						style={{ color: id === selected ? 'black' : '', textDecoration: 'none' }}
 						onClick={() => setSelected(id)}
 						key={name}
 					>
@@ -31,8 +38,13 @@ const Navbar = () => {
 					</NavLink>
 				))}
 			</div>
-			<NavLink to={'cart'}>
-				<img src={cart} alt='cart' className='cart' />
+			<NavLink className='cart-icon' to={'cart'} style={{ textDecoration: 'none' }}>
+				<img src={cartIcon} alt='cart' />
+				{Boolean(cart.length) && (
+					<div className='cart-size'>
+						<span>{cart.length}</span>
+					</div>
+				)}
 			</NavLink>
 		</nav>
 	)

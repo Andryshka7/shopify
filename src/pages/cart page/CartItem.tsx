@@ -1,20 +1,18 @@
-import { useState } from 'react'
-import products from 'products'
-import { ICartItem } from 'types/cartItem'
-import QuantitySelector from 'components/quantity selector/QuantitySelector'
 import { useAppDispatch } from 'hooks/storehooks'
-import { removeCartItem } from 'redux/cartSlice'
+import { ICartItem } from 'types/cartItem'
+import { decreaseAmountOfItem, increaseAmountOfItem, removeCartItem } from 'redux/cartSlice'
+import QuantitySelector from 'components/quantity selector/QuantitySelector'
+import products from 'products'
 
-const CartItem = ({ id, amount: n }: ICartItem) => {
+const CartItem = ({ id, amount }: ICartItem) => {
 	const dispatch = useAppDispatch()
-	const [amount, setAmount] = useState<number>(n)
 
 	const product = products.find((product) => product.id === id)
 	if (!product) return <></>
 
 	const { name, image, price } = product
-	const increaseQuantity = () => setAmount(amount + 1)
-	const decreaseQuantity = () => (amount > 1 ? setAmount(amount - 1) : dispatch(removeCartItem(id)))
+	const increaseQuantity = () => dispatch(increaseAmountOfItem(id))
+	const decreaseQuantity = () => dispatch(decreaseAmountOfItem(id))
 
 	return (
 		<div className='cart-item'>

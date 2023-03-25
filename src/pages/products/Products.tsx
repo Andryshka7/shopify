@@ -1,15 +1,26 @@
+import { NavLink } from 'react-router-dom'
+import { IProduct } from 'types/product'
 import products from 'products'
-import ProductCard from './ProductCard'
 import './products.css'
 
-const Products = () => {
-	return (
-		<div className='products'>
-			{products.map((product) => (
-				<ProductCard {...product} key={'pk' + product.id} />
-			))}
+const ProductCard = ({ id, name, category, image, price, rating }: IProduct) => (
+	<NavLink to={String(id)} className='product'>
+		<div>
+			<img src={image} alt={name} />
+			<div className='info'>
+				<p className='product-name'>{name}</p>
+				<p className='product-price'>${price}</p>
+			</div>
 		</div>
-	)
-}
+	</NavLink>
+)
+
+const Products = () => (
+	<div className='products'>
+		{products.map((product) => (
+			<ProductCard {...product} key={'pk' + product.id} />
+		))}
+	</div>
+)
 
 export default Products

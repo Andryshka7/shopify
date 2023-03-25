@@ -1,6 +1,10 @@
 .cart {
-	width: 60%;
+	width: 50%;
 	margin: 0 auto;
+}
+
+.cart hr {
+	min-width: 450px;
 }
 
 .cart-item {
@@ -8,11 +12,12 @@
 	justify-content: space-between;
 	align-items: center;
 	width: 70%;
+	min-width: 450px;
 	margin: auto;
 }
 
 .cart-item h2 {
-	margin: 10px 0;
+	margin: 0 0 10px 0;
 }
 
 .cart-item img {
@@ -38,4 +43,11 @@
 	width: 400px;
     text-align: center;
 	margin: 20px auto;
+}
+
+.total {
+	font-weight: 700;
+	color: #303030;
+	width: fit-content;
+	margin: 0 20px 0 auto;
 }
