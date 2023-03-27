@@ -1,7 +1,41 @@
+.products-container {
+	margin: auto;
+	overflow: hidden;
+	display: flex;
+	max-width: 85%;
+}
+
+.filters {
+	margin: 30px auto 0;
+	transition: 0.7s;
+	width: 170px;
+	height: 100px;
+}
+.filters .name {
+	margin: 0;
+}
+
+.filters .category {
+	font-weight: 500;
+	font-size: 14px;
+	margin: 10px 0;
+	transition: 200ms;
+	cursor: pointer;
+}
+
+.filters .category:hover {
+	scale: 1.05;
+}
+
+.filters-icon {
+	margin: 37px 10px;
+	height: 30px;
+	width: 30px;
+}
 .products {
-	max-width: 80%;
 	text-align: center;
-	margin: 0 auto;
+	width: fit-content;
+	transition: 0.7s;
 }
 
 .product {
