@@ -1,6 +1,5 @@
 .products-container {
-	margin: auto;
-	overflow: hidden;
+	margin: 0 auto;
 	display: flex;
 	max-width: 85%;
 }
@@ -11,13 +10,30 @@
 	width: 170px;
 	height: 100px;
 }
-.filters .name {
+
+.filters h2 {
 	margin: 0;
+}
+
+.filters .name {
+	margin: 0 0 15px;
 }
 
 .filters .category {
 	font-weight: 500;
+	color: rgb(100, 100, 100);
 	font-size: 14px;
+	font-weight: 700;
+	margin: 10px 0;
+	transition: 200ms;
+	cursor: pointer;
+}
+
+.filters .selected {
+	font-weight: 500;
+	color: black;
+	font-size: 14px;
+	font-weight: 700;
 	margin: 10px 0;
 	transition: 200ms;
 	cursor: pointer;
