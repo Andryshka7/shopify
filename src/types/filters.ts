@@ -1,7 +1,5 @@
 export interface IFilters {
-	price_ascending: boolean
-	price_decending: boolean
-	alphabetical: boolean
-	alphabetical_reversed: boolean
 	categories: string[]
+	price_sort: -1 | 1 | 0
+	alphabetical_sort: -1 | 1 | 0
 }

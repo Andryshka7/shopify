@@ -1,0 +1,40 @@
+.filters {
+	margin: 30px auto 0;
+	transition: 0.7s;
+	width: 170px;
+	height: 100px;
+}
+
+.filters-icon {
+	margin: 37px 10px;
+	height: 30px;
+	width: 30px;
+}
+.filters h1 {
+	margin: 0 0 15px;
+}
+.filters h2 {
+	margin: 0;
+}
+
+.filters .category,
+.filters .selected {
+	font-weight: 500;
+	font-size: 14px;
+	font-weight: 700;
+	margin: 10px 0;
+	transition: 200ms;
+	cursor: pointer;
+}
+.filters .category:hover,
+.filters .selected:hover {
+	scale: 1.05;
+}
+
+.filters .selected {
+	color: black;
+}
+
+.filters .category {
+	color: rgb(100, 100, 100);
+}

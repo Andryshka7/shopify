@@ -1,27 +1,34 @@
+import { IProduct } from './../types/product'
 import { useAppSelector } from './storehooks'
 import products from 'products'
 
-const UseFilteredProducts = () => {
-	const { filters } = useAppSelector((store) => store)
+const asc_price = (a: IProduct, b: IProduct) => a.price - b.price
+const desc_price = (a: IProduct, b: IProduct) => b.price - a.price
+
+const asc_alph = (a: IProduct, b: IProduct) => a.name.localeCompare(b.name)
+const desc_alph = (a: IProduct, b: IProduct) => b.name.localeCompare(a.name)
+
+const useFilteredProducts = () => {
+	const { price_sort, alphabetical_sort, categories } = useAppSelector((store) => store.filters)
 	let filtered = [...products]
 
-	if (filters.categories.length) {
-		filtered = filtered.filter((item) => filters.categories.includes(item.category))
+	if (categories.length) {
+		filtered = filtered.filter((item) => categories.includes(item.category))
 	}
 
-	if (filters.price_ascending) {
-		filtered = filtered.sort((a, b) => a.price - b.price)
-	} else if (filters.price_decending) {
-		filtered = filtered.sort((a, b) => b.price - a.price)
+	if (price_sort === 1) {
+		filtered = filtered.sort(asc_price)
+	} else if (price_sort === -1) {
+		filtered = filtered.sort(desc_price)
 	}
 
-	if (filters.alphabetical) {
-		filtered = filtered.sort((a, b) => a.name.localeCompare(b.name))
-	} else if (filters.alphabetical_reversed) {
-		filtered = filtered.sort((a, b) => -1 * a.image.localeCompare(b.name))
+	if (alphabetical_sort === 1) {
+		filtered = filtered.sort(asc_alph)
+	} else if (alphabetical_sort === -1) {
+		filtered = filtered.sort(desc_alph)
 	}
 
 	return filtered
 }
 
-export default UseFilteredProducts
+export default useFilteredProducts
