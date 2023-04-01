@@ -1,0 +1,46 @@
+.error-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
+	background-color: #f9f9f9;
+}
+
+.error-card {
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	padding: 30px 40px;
+	text-align: center;
+	width: 400px;
+}
+
+.error-code {
+	color: #484848;
+	font-size: 72px;
+	margin: 0;
+}
+
+.error-message {
+	color: #333;
+	font-size: 24px;
+	font-weight: 400;
+}
+
+.error-button {
+	background-color: #484848;
+	border: none;
+	border-radius: 4px;
+	color: #fff;
+	display: inline-block;
+	font-size: 16px;
+	margin-top: 24px;
+	padding: 12px 24px;
+	text-align: center;
+	text-decoration: none;
+	transition: background-color 0.3s ease;
+}
+
+.error-button:hover {
+	background-color: #5c5c5c;
+}

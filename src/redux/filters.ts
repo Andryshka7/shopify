@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IFilters } from './../types/filters'
+import { IFilters } from '../types/filters'
 
 const initialState: IFilters = {
 	categories: [],
@@ -14,7 +14,7 @@ const filtersSlice = createSlice({
 		applyCategory: (state, action: PayloadAction<string>) => {
 			const category = action.payload
 			const { categories } = state
-			
+
 			if (categories.includes(category)) {
 				state.categories.splice(categories.indexOf(category), 1)
 			} else {

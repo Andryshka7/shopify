@@ -1,13 +1,14 @@
 import { useAppDispatch, useAppSelector } from 'hooks/storehooks'
 import { BsArrowDown, BsArrowUp } from 'react-icons/bs'
-import { applyAlphabeticalFilter, applyPriceFilter } from 'redux/filtersSlice'
-import { applyCategory, clearCategories } from 'redux/filtersSlice'
-import products from 'products'
+import { applyAlphabeticalFilter, applyPriceFilter } from 'redux/filters'
+import { applyCategory, clearCategories } from 'redux/filters'
 import './filters.css'
 
 const Filters = () => {
 	const dispatch = useAppDispatch()
-	const { price_sort, alphabetical_sort, categories } = useAppSelector((store) => store.filters)
+	const { products, filters } = useAppSelector((store) => store)
+
+	const { price_sort, alphabetical_sort, categories } = filters
 
 	const priceClass = price_sort ? 'selected' : 'category'
 	const nameClass = alphabetical_sort ? 'selected' : 'category'

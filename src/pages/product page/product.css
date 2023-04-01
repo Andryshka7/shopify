@@ -11,15 +11,18 @@
 .product-review .info {
 	width: 50%;
 }
-.product-review img {
-	width: 300px;
-	height: 300px;
-}
 .product-review .name {
 	margin: 30px 0 5px;
+	font-size: 28px;
 }
+
 .details {
 	margin-top: 10px;
+}
+
+.description {
+	max-height: 150px;
+	overflow: hidden;
 }
 .product-review .price {
 	margin: 10px 0;
@@ -44,7 +47,8 @@
 	margin-top: 15px;
 }
 
-.toCart, .buy {
+.toCart,
+.buy {
 	font-size: 20px;
 	padding: 8px 35px;
 	cursor: pointer;

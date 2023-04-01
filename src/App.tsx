@@ -1,5 +1,5 @@
+import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-
 import Navbar from 'components/navbar/Navbar'
 import Footer from 'components/footer/Footer'
 import Home from 'pages/home/Home'
@@ -7,23 +7,18 @@ import Products from 'pages/products/Products'
 import Product from 'pages/product page/Product'
 import About from 'pages/about/About'
 import Conact from 'pages/contact/Contact'
-import products from 'products'
 import Cart from 'pages/cart page/Cart'
-
-const api = 'https://fakestoreapi.com/products'
-
-const getShopItems = async () => {
-	const response = await fetch(api)
-	const data = await response.json()
-	return data
-}
-
-const Test = () => {
-	console.log(true)
-	return <h1>asdfasdf</h1>
-}
+import Error from 'components/error/Error'
+import { useAppDispatch } from 'hooks/storehooks'
+import { fetchProducts } from 'redux/products'
 
 const App = () => {
+	const dispatch = useAppDispatch()
+
+	useEffect(() => {
+		dispatch(fetchProducts())
+	}, [])
+
 	return (
 		<div className='App'>
 			<BrowserRouter>
@@ -37,6 +32,7 @@ const App = () => {
 					<Route path='about' element={<About />} />
 					<Route path='contact' element={<Conact />} />
 					<Route path='cart' element={<Cart />} />
+					<Route path='*' element={<Error />} />
 				</Routes>
 			</BrowserRouter>
 			<Footer />

@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import filtersIcon from 'assets/filters-icon.png'
 import Filters from './Filters/Filters'
-import useFilteredProducts from '../../hooks/UseFilterProducts'
+import useFilteredProducts from 'hooks/useFilterProducts'
 import './products.css'
+import ImageContainer from 'components/image container/ImageContainer'
 
 const Products = () => {
 	const [open, setOpen] = useState<boolean>(true)
@@ -15,12 +16,12 @@ const Products = () => {
 			<img src={filtersIcon} alt='' onClick={switchOpen} className='filters-icon' />
 			{open && <Filters />}
 			<div className='products'>
-				{products.map(({ id, name, image, price }) => (
+				{products.map(({ id, title, image, price }) => (
 					<NavLink to={String(id)} className='product' key={'p' + id}>
 						<div>
-							<img src={image} alt={name} />
+							<ImageContainer width={200} height={200} image={image} />
 							<div className='info'>
-								<p className='product-name'>{name}</p>
+								<p className='product-name'>{title}</p>
 								<p className='product-price'>${price}</p>
 							</div>
 						</div>
