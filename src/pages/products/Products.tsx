@@ -2,16 +2,14 @@ import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import filtersIcon from 'assets/filters-icon.png'
 import Filters from './Filters/Filters'
-// import useFilteredProducts from 'hooks/useFilterProducts'
 import ImageContainer from 'components/image container/ImageContainer'
+import useFilteredProducts from 'hooks/useFilterProducts'
 import './products.css'
-import { useAppDispatch, useAppSelector } from 'hooks/storehooks'
 
 const Products = () => {
 	const [open, setOpen] = useState<boolean>(true)
 	const switchOpen = () => setOpen((p) => !p)
-	// const products = useFilteredProducts()
-	const { products } = useAppSelector((store) => store)
+	const products = useFilteredProducts()
 
 	return (
 		<div className='products-container'>
