@@ -27,6 +27,7 @@ const filtersSlice = createSlice({
 		},
 
 		applyPriceFilter: (state) => {
+			state.alphabetical_sort = 0
 			if (state.price_sort === 1) {
 				state.price_sort = -1
 			} else {
@@ -34,6 +35,7 @@ const filtersSlice = createSlice({
 			}
 		},
 		applyAlphabeticalFilter: (state) => {
+			state.price_sort = 0
 			if (state.alphabetical_sort === 1) {
 				state.alphabetical_sort = -1
 			} else {

@@ -1,30 +1,26 @@
 import { IProduct } from '../types/product'
 import { useAppSelector } from './storehooks'
 
-const asc_price = (a: IProduct, b: IProduct) => a.price - b.price
-const desc_price = (a: IProduct, b: IProduct) => b.price - a.price
-
-const asc_alph = (a: IProduct, b: IProduct) => a.title.localeCompare(b.title)
-const desc_alph = (a: IProduct, b: IProduct) => b.title.localeCompare(a.title)
-
 const useFilteredProducts = () => {
 	const { price_sort, alphabetical_sort, categories } = useAppSelector((store) => store.filters)
-	let filtered = useAppSelector((store) => store.products)
+	let filtered = [...useAppSelector((store) => store.products)]
+
+	console.log(price_sort, alphabetical_sort, categories)
 
 	if (categories.length) {
 		filtered = filtered.filter((item) => categories.includes(item.category))
 	}
 
 	if (price_sort === 1) {
-		filtered = filtered.sort(asc_price)
+		filtered.sort((a, b) => a.price - b.price)
 	} else if (price_sort === -1) {
-		filtered = filtered.sort(desc_price)
+		filtered.sort((a, b) => b.price - a.price)
 	}
 
 	if (alphabetical_sort === 1) {
-		filtered = filtered.sort(asc_alph)
+		filtered.sort((a, b) => a.title.localeCompare(b.title))
 	} else if (alphabetical_sort === -1) {
-		filtered = filtered.sort(desc_alph)
+		filtered.sort((a, b) => b.title.localeCompare(a.title))
 	}
 
 	return filtered
