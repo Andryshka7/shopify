@@ -7,13 +7,12 @@ import './navbar.css'
 const navigators = [
 	{ id: 1, link: '/', name: 'Home' },
 	{ id: 2, link: 'products', name: 'Products' },
-	{ id: 3, link: 'about', name: 'About' },
-	{ id: 4, link: 'contact', name: 'Contact' },
+	{ id: 3, link: 'contact', name: 'Contact' },
 ]
 
 const Navbar = () => {
 	const { cart } = useAppSelector((store) => store)
-	const [selected, setSelected] = useState<number | null>(null)
+	const [selected, setSelected] = useState<number | null>(1)
 
 	return (
 		<nav>
@@ -38,7 +37,12 @@ const Navbar = () => {
 					</NavLink>
 				))}
 			</div>
-			<NavLink className='cart-icon' to={'cart'} style={{ textDecoration: 'none' }}>
+			<NavLink
+				className='cart-icon'
+				to={'cart'}
+				style={{ textDecoration: 'none' }}
+				onClick={() => setSelected(null)}
+			>
 				<img src={cartIcon} alt='cart' />
 				{Boolean(cart.length) && (
 					<div className='cart-size'>

@@ -1,0 +1,16 @@
+.search {
+    height: 30px;
+    margin: 0 auto;
+	padding: 10px 20%;
+	text-align: center;
+	font-size: 20px;
+	border: 2px solid #ddd;
+	border-radius: 4px;
+	box-shadow: none;
+	outline: none;
+	transition: border-color 0.3s ease;
+}
+
+.search:focus {
+	border-color: #1c7cd6; /* Change this to the color you want when the input is focused */
+}

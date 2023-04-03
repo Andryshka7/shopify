@@ -4,16 +4,16 @@ import { useAppDispatch, useAppSelector } from 'hooks/storehooks'
 import { pushCartItems } from 'redux/cart'
 import Rating from './Rating'
 import QuantitySelector from '../../components/quantity selector/QuantitySelector'
-import './product.css'
 import ImageContainer from 'components/image container/ImageContainer'
+import './product.css'
 
 const Product = () => {
 	const dispatch = useAppDispatch()
-	const { products } = useAppSelector((store) => store)
+	const { productList } = useAppSelector((store) => store.products)
 	const params = useParams()
 	const [quantity, setQuantity] = useState<number>(1)
 
-	const product = products.find((i) => i.id === Number(params.id))
+	const product = productList.find((i) => i.id === Number(params.id))
 	if (!product) return <></>
 
 	const { id, title, image, price, rating, description } = product

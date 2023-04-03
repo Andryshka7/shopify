@@ -3,7 +3,10 @@ import CartItem from './CartItem'
 import './cart.css'
 
 const Cart = () => {
-	const { cart, products } = useAppSelector((store) => store)
+	const {
+		cart,
+		products: { productList },
+	} = useAppSelector((store) => store)
 
 	if (!cart.length)
 		return (
@@ -14,7 +17,7 @@ const Cart = () => {
 		)
 
 	const total = cart
-		.map(({ id, amount }) => (products.find((product) => product.id === id)?.price || 0) * amount)
+		.map(({ id, amount }) => (productList.find((product) => product.id === id)?.price || 0) * amount)
 		.reduce((a, b) => a + b)
 
 	return (

@@ -3,9 +3,7 @@ import { useAppSelector } from './storehooks'
 
 const useFilteredProducts = () => {
 	const { price_sort, alphabetical_sort, categories } = useAppSelector((store) => store.filters)
-	let filtered = [...useAppSelector((store) => store.products)]
-
-	console.log(price_sort, alphabetical_sort, categories)
+	let filtered = [...useAppSelector((store) => store.products.productList)]
 
 	if (categories.length) {
 		filtered = filtered.filter((item) => categories.includes(item.category))

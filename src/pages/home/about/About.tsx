@@ -3,7 +3,7 @@ import './about.css'
 const About = () => {
 	return (
 		<div className='about'>
-			<h1>About Shopify</h1>
+			<h1>About</h1>
 			<p>
 				Shopify is an ecommerce platform founded in 2023 by 17-year-old Andrey Lapchik. Our mission is
 				to make commerce better for everyone, by providing an easy-to-use, scalable, and reliable

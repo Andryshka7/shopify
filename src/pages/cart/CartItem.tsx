@@ -6,26 +6,25 @@ import ImageContainer from 'components/image container/ImageContainer'
 
 const CartItem = ({ id, amount }: ICartItem) => {
 	const dispatch = useAppDispatch()
-	const { products } = useAppSelector((store) => store)
+	const { productList } = useAppSelector((store) => store.products)
 
-	const product = products.find((product) => product.id === id)
+	const product = productList.find((product) => product.id === id)
 	if (!product) return <></>
 
-	const { title, image, price } = product
 	const increaseQuantity = () => dispatch(increaseAmountOfItem(id))
 	const decreaseQuantity = () => dispatch(decreaseAmountOfItem(id))
 
 	return (
 		<div className='cart-item'>
-			<ImageContainer width={80} height={80} image={image} />
+			<ImageContainer width={80} height={80} image={product.image} />
 			<div className='left-info'>
-				<h2>{title}</h2>
+				<h2>{product.title}</h2>
 				<QuantitySelector
 					quantity={amount}
 					increaseQuantity={increaseQuantity}
 					decreaseQuantity={decreaseQuantity}
 				/>
-				<h3 className='price'>${(price * amount).toFixed(2)}</h3>
+				<h3 className='price'>${(product.price * amount).toFixed(2)}</h3>
 			</div>
 			<button className='remove-item' onClick={() => dispatch(removeCartItem(id))}>
 				REMOVE
