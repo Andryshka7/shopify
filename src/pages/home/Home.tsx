@@ -26,8 +26,8 @@ const Home = () => {
 					<MdChevronLeft size={150} onClick={() => scroll(-242)} />
 					<div className='products-list' ref={ref}>
 						{productList.map(({ price, title, image, id }) => (
-							<NavLink to={`products/${id}`}>
-								<div className='product' key={'p1' + id}>
+							<NavLink to={`products/${id}`} key={'p1' + id}>
+								<div className='product'>
 									<ImageContainer width={150} height={150} image={image} />
 									<h2>{title}</h2>
 									<p>${price}</p>

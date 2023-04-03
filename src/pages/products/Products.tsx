@@ -1,13 +1,11 @@
-import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useAppSelector } from 'hooks/storehooks'
 import Loader from 'components/loader/Loader'
-import filtersIcon from 'assets/filters-icon.png'
 import Filters from './Filters/Filters'
 import ImageContainer from 'components/image container/ImageContainer'
 import useFilteredProducts from 'hooks/useFilterProducts'
+import Search from '../../components/Search/Search'
 import './products.css'
-import Search from './Search/Search'
 
 const Products = () => {
 	const { loading } = useAppSelector((store) => store.products)
@@ -17,7 +15,6 @@ const Products = () => {
 		<Loader />
 	) : (
 		<>
-			<Search />
 			<div className='products-container'>
 				<Filters />
 				<div className='products'>

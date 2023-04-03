@@ -1,15 +1,10 @@
 .filters {
-	margin: 30px auto 0;
-	transition: 0.7s;
-	width: 170px;
+	margin-top: 30px;
+	width: 200px;
 	height: 100px;
+	transition: .5s;
 }
 
-.filters-icon {
-	margin: 37px 10px;
-	height: 30px;
-	width: 30px;
-}
 .filters h1 {
 	margin: 0 0 15px;
 }
@@ -21,7 +16,7 @@
 .filters .selected {
 	font-weight: 500;
 	font-size: 14px;
-	font-weight: 700;
+	font-weight: 600;
 	margin: 10px 0;
 	transition: 200ms;
 	cursor: pointer;
@@ -38,3 +33,21 @@
 .filters .category {
 	color: rgb(100, 100, 100);
 }
+
+.clear-filters {
+  background-color: #f2f2f2;
+  border: 2px solid #ccc;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 20px;
+}
+
+.clear-filters:hover {
+  background-color: #eaeaea;
+}
+

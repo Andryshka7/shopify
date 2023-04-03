@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useAppSelector } from 'hooks/storehooks'
 import cartIcon from 'assets/shopping-cart.png'
 import './navbar.css'
+import Search from 'components/Search/Search'
 
 const navigators = [
 	{ id: 1, link: '/', name: 'Home' },
@@ -37,6 +38,7 @@ const Navbar = () => {
 					</NavLink>
 				))}
 			</div>
+			<Search />
 			<NavLink
 				className='cart-icon'
 				to={'cart'}

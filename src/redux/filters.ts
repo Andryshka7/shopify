@@ -42,9 +42,10 @@ const filtersSlice = createSlice({
 				state.alphabetical_sort = 1
 			}
 		},
+		clearFilters: () => initialState,
 	},
 })
 
 export default filtersSlice.reducer
-export const { applyCategory, clearCategories, applyPriceFilter, applyAlphabeticalFilter } =
+export const { applyCategory, clearCategories, applyPriceFilter, applyAlphabeticalFilter, clearFilters } =
 	filtersSlice.actions
