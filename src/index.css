@@ -10,3 +10,8 @@ body {
 	display: flex;
 	flex-direction: column;
 }
+
+a {
+	color: initial;
+	text-decoration: none;
+}

@@ -4,7 +4,6 @@ import Loader from 'components/loader/Loader'
 import Filters from './Filters/Filters'
 import ImageContainer from 'components/image container/ImageContainer'
 import useFilteredProducts from 'hooks/useFilterProducts'
-import Search from '../../components/Search/Search'
 import './products.css'
 
 const Products = () => {
