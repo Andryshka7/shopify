@@ -1,12 +1,8 @@
 import { useState } from 'react'
-import './Search.css'
 import { useAppSelector } from 'hooks/storehooks'
-import ImageContainer from 'components/image container/ImageContainer'
 import { NavLink } from 'react-router-dom'
-
-const Results = () => {}
-
-const func = (a: string, b: string) => a.includes(b)
+import ImageContainer from 'components/image container/ImageContainer'
+import './Search.css'
 
 const Search = () => {
 	const { productList } = useAppSelector((store) => store.products)
@@ -17,7 +13,7 @@ const Search = () => {
 	const resultsClass = showResults ? 'results results-shown' : 'results results-hidden'
 
 	return (
-		<div className='search'>
+		<div className='search' >
 			<input
 				type='text'
 				className='search'
@@ -25,13 +21,20 @@ const Search = () => {
 				value={value}
 				onChange={(event) => setValue(event.target.value)}
 				onFocus={() => setShowResults(true)}
-				onBlur={() => setShowResults(false)}
+				onBlur={(e) => {
+					if (e.relatedTarget?.firstElementChild?.className !== 'search-result')
+						setShowResults(false)
+				}}
 			/>
 			<div className={resultsClass}>
 				{productList
 					.filter(({ title, category }) => valueIsIn(title) || valueIsIn(category))
 					.map(({ image, title, id }, index) => (
-						<NavLink to={`/products/${id}`} key={'s' + index}>
+						<NavLink
+							to={`/products/${id}`}
+							onClick={() => setShowResults(false)}
+							key={'s' + index}
+						>
 							<div className='search-result'>
 								<ImageContainer image={image} width={50} height={50} />
 								<p>{title}</p>
