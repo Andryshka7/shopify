@@ -3,9 +3,8 @@ import { useParams } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from 'hooks/storehooks'
 import { pushCartItems } from 'redux/cart'
 import Rating from './Rating'
-import QuantitySelector from '../../components/quantity selector/QuantitySelector'
-import ImageContainer from 'components/image container/ImageContainer'
-import './product.css'
+import QuantitySelector from '../../components/QuantitySelector'
+import ImageContainer from 'components/ImageContainer'
 
 const Product = () => {
 	const dispatch = useAppDispatch()
@@ -21,28 +20,31 @@ const Product = () => {
 	const decreaseQuantity = () => quantity > 1 && setQuantity(quantity - 1)
 
 	return (
-		<div className='product-review'>
+		<div className='flex justify-around items-center my-0 mx-auto w-8/12 max-w-[850px] min-w-[700px] '>
 			<ImageContainer width={300} height={300} image={image} />
-			<div className='info'>
-				<h1 className='name'>{title}</h1>
+			<div className='w-1/2'>
+				<p className='text-2xl font-bold mx-0 my-7 mb-1'>{title}</p>
 				<Rating rating={rating.rate} reviews={rating.count} />
-				<h3 className='details'>Details: </h3>
-				<p className='description'>{description}</p>
-				<h2 className='price'>${price}</h2>
-				<h3 className='quantity-name'>Quantity: </h3>
+				<p className='mt-2 font-bold'>Details: </p>
+				<p className='max-h-[150px] overflow-hidden'>{description}</p>
+				<p className='my-2 mx-0 font-bold text-2xl text-red-700'>${price}</p>
+				<p className='inline mr-2 text-xl text-gray-800 font-bold'>Quantity: </p>
 				<QuantitySelector
 					quantity={quantity}
 					increaseQuantity={increaseQuantity}
 					decreaseQuantity={decreaseQuantity}
 				/>
-				<div className='buttons'>
+				<div className='w-full flex justify-between mt-3.5'>
 					<button
-						className='toCart'
+						className='text-red-700 text-xl py-2 px-9 cursor-pointer border border-red-700
+ '
 						onClick={() => dispatch(pushCartItems({ id, amount: quantity }))}
 					>
 						Add to cart
 					</button>
-					<button className='buy'>Buy now</button>
+					<button className='text-xl py-2 px-9 cursor-pointer bg-red-700 text-white border-none mr-2.5'>
+						Buy now
+					</button>
 				</div>
 			</div>
 		</div>

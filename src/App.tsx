@@ -1,13 +1,13 @@
 import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Navbar from 'components/navbar/Navbar'
-import Footer from 'components/footer/Footer'
-import Home from 'pages/home/Home'
-import Products from 'pages/products/Products'
-import Product from 'pages/product/Product'
-import Conact from 'pages/contact/Contact'
-import Cart from 'pages/cart/Cart'
-import Error from 'components/error/Error'
+import Navbar from 'components/Navbar'
+import Footer from 'components/Footer'
+import Home from 'pages/Home/Home'
+import Products from 'pages/Products/Products'
+import Product from 'pages/Product/Product'
+import Conact from 'pages/Contact/Contact'
+import Cart from 'pages/Cart/Cart'
+import Error from 'components/Error'
 import { useAppDispatch } from 'hooks/storehooks'
 import { fetchProducts } from 'redux/products'
 
@@ -19,7 +19,7 @@ const App = () => {
 	}, [])
 
 	return (
-		<div className='App'>
+		<div className='min-h-screen flex flex-col'>
 			<BrowserRouter>
 				<Navbar />
 				<Routes>

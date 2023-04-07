@@ -1,10 +1,9 @@
 import { NavLink } from 'react-router-dom'
 import { useAppSelector } from 'hooks/storehooks'
-import Loader from 'components/loader/Loader'
-import Filters from './Filters/Filters'
-import ImageContainer from 'components/image container/ImageContainer'
+import Loader from 'components/Loader'
+import Filters from './Filters'
+import ImageContainer from 'components/ImageContainer'
 import useFilteredProducts from 'hooks/useFilterProducts'
-import './products.css'
 
 const Products = () => {
 	const { loading } = useAppSelector((store) => store.products)
@@ -13,24 +12,26 @@ const Products = () => {
 	return loading ? (
 		<Loader />
 	) : (
-		<>
-			<div className='products-container'>
-				<Filters />
-				<div className='products'>
-					{products.map(({ id, title, image, price }) => (
-						<NavLink to={String(id)} className='product' key={'p' + id}>
-							<div>
-								<ImageContainer width={200} height={200} image={image} />
-								<div className='info'>
-									<p className='product-name'>{title}</p>
-									<p className='product-price'>${price}</p>
-								</div>
+		<div className='flex w-10/12 justify-between my-0 mx-auto'>
+			<Filters />
+			<div className='w-full text-center transition linear duration-500'>
+				{products.map(({ id, title, image, price }) => (
+					<NavLink
+						to={String(id)}
+						className='w-[200px] h-fit inline-block m-5 mb-0 transition duration-200 hover:scale-[1.05]'
+						key={'p' + id}
+					>
+						<div>
+							<ImageContainer width={200} height={200} image={image} />
+							<div className='h-[70px] flex justify-between items-center'>
+								<p className='font-medium mx-2.5 line-clamp-2 text-ellipsis'>{title}</p>
+								<p className='font-bold text-xl mx-2.5'>${price}</p>
 							</div>
-						</NavLink>
-					))}
-				</div>
+						</div>
+					</NavLink>
+				))}
 			</div>
-		</>
+		</div>
 	)
 }
 
