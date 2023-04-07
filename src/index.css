@@ -6,12 +6,6 @@ body {
 	margin: 0;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
 		'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-	background: white;
-}
-
-a {
-	color: initial;
-	text-decoration: none;
 }
 
 .loader div {
@@ -46,15 +40,6 @@ a {
 }
 .search-results::-webkit-scrollbar-thumb:hover {
 	background: #888;
-}
-
-.products-scroll::-webkit-scrollbar {
-	width: 8px;
-	height: 10px;
-}
-.products-scroll::-webkit-scrollbar-thumb {
-	border-radius: 8px;
-	background: #c2c9d2;
 }
 
 @keyframes bounce {

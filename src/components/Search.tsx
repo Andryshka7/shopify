@@ -11,7 +11,7 @@ const Search = () => {
 	const valueIsIn = (a: string) => value.trim() && a.toLowerCase().includes(value.toLowerCase())
 
 	const resultsClass =
-		'absolute w-[260px] max-h-[260px] bg-white overflow-y-scroll mt-[5px] transition transition-duration-300 ' +
+		'search-results absolute w-[260px] max-h-[260px] bg-white overflow-y-scroll mt-[5px] transition transition-duration-300 ' +
 		(showResults ? '' : 'opacity-0 pointer-events-none -translate-y-1.5')
 
 	return (

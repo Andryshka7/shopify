@@ -23,7 +23,10 @@ const Home = () => {
 			) : (
 				<div className='flex justify-center items-center w-10/12 h-fit'>
 					<MdChevronLeft size={150} onClick={() => scroll(-216)} />
-					<div className='products-scroll flex scroll-smooth mt-[20px] overflow-y-hidden' ref={ref}>
+					<div
+						className='flex scroll-smooth mt-[20px] overflow-y-hidden scrollbar-none'
+						ref={ref}
+					>
 						{productList.map(({ price, title, image, id }) => (
 							<NavLink to={`products/${id}`} key={'p1' + id}>
 								<div className='flex flex-col text-center m-2 py-3 px-2 pt-5 w-[200px] h-[300px] border border-gray-300'>
@@ -40,7 +43,7 @@ const Home = () => {
 				</div>
 			)}
 			<NavLink to={'/products'}>
-				<button className='bg-red-600 border-none mt-[20px] px-[24px] py-[12px] rounded-md text-white text-[18px] font-medium cursor-pointer transition duration-300 hover:bg-red-700 '>
+				<button className='bg-red-600 border-none mt-[20px] px-[24px] py-[12px] rounded-md text-white text-lg font-medium cursor-pointer transition duration-300 hover:bg-red-700 '>
 					Show More
 				</button>
 			</NavLink>

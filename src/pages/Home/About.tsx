@@ -1,5 +1,5 @@
 const About = () => (
-	<div className='bg-gray-100 text-gray-800 pb-10 pr-7 mx-auto my-10 mb-0 w-8/12 rounded-lg shadow-gray-300'>
+	<div className='bg-gray-100 text-gray-800 pb-10 my-5 mb-0 w-8/12 rounded-lg shadow-lg shadow-gray-300'>
 		<h1 className='mt-2 text-center text-[35px] font-bold mb-4'>About</h1>
 		<p className='mb-5 text-xl'>
 			Shopify is an ecommerce platform founded in 2023 by 17-year-old Andrey Lapchik. Our mission is to
