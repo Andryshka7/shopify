@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IFilters } from '../types/filters'
+import { Filters } from '../types/filters'
 
-const initialState: IFilters = {
+const initialState: Filters = {
 	categories: [],
 	price_sort: 0,
 	alphabetical_sort: 0,

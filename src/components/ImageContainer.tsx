@@ -1,10 +1,10 @@
-interface IImageContainerProps {
+interface ImageContainerProps {
 	height: number
 	width: number
 	image: string
 }
 
-const ImageContainer = ({ height, width, image }: IImageContainerProps) => (
+const ImageContainer = ({ height, width, image }: ImageContainerProps) => (
 	<div
 		className={`flex items-center justify-center`}
 		style={{ minWidth: width + 'px', minHeight: height + 'px' }}

@@ -1,10 +1,10 @@
 import { useAppDispatch, useAppSelector } from 'hooks/storehooks'
-import { ICartItem } from 'types/cartItem'
+import { CartItem } from 'types/cartItem'
 import { decreaseAmountOfItem, increaseAmountOfItem, removeCartItem } from 'redux/cart'
 import QuantitySelector from 'components/QuantitySelector'
 import ImageContainer from 'components/ImageContainer'
 
-const CartItem = ({ id, amount }: ICartItem) => {
+const CartItem = ({ id, amount }: CartItem) => {
 	const dispatch = useAppDispatch()
 	const { productList } = useAppSelector((store) => store.products)
 

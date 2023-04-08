@@ -1,13 +1,13 @@
-import { ICartItem } from '../types/cartItem'
+import { CartItem } from '../types/cartItem'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-const initialState: ICartItem[] = []
+const initialState: CartItem[] = []
 
 const cartSlice = createSlice({
 	name: 'cart',
 	initialState,
 	reducers: {
-		pushCartItems: (state, action: PayloadAction<ICartItem>) => {
+		pushCartItems: (state, action: PayloadAction<CartItem>) => {
 			const { id, amount } = action.payload
 			const alreadyInCart = state.find((item) => item.id === id)
 

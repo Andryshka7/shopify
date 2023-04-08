@@ -2,7 +2,11 @@ import { NavLink } from 'react-router-dom'
 import { useAppSelector } from 'hooks/storehooks'
 import cartImage from 'assets/shopping-cart.png'
 
-export const CartIcon = ({ handleOnClick }: { handleOnClick: () => void }) => {
+interface CartIconProps {
+	handleOnClick: () => void
+}
+
+const CartIcon = ({ handleOnClick }: CartIconProps) => {
 	const { cart } = useAppSelector((store) => store)
 	return (
 		<NavLink className='w-[35px] h-[35px] relative ' to={'cart'} onClick={handleOnClick}>
@@ -15,3 +19,5 @@ export const CartIcon = ({ handleOnClick }: { handleOnClick: () => void }) => {
 		</NavLink>
 	)
 }
+
+export default CartIcon

@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { useAppSelector } from 'hooks/storehooks'
+import CartIcon from './CartIcon'
 import Search from 'components/Search'
-import { CartIcon } from './CartIcon'
 
 const navigators = [
 	{ id: 1, link: '/', name: 'Home' },
@@ -10,7 +9,6 @@ const navigators = [
 ]
 
 const Navbar = () => {
-	const { cart } = useAppSelector((store) => store)
 	const [selected, setSelected] = useState<number | null>(1)
 
 	return (

@@ -1,9 +1,9 @@
-import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { IProduct } from 'types/product'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { Product } from 'types/product'
 
 interface initialProducts {
 	loading: boolean
-	productList: IProduct[]
+	productList: Product[]
 }
 
 const url = 'https://fakestoreapi.com/products'
@@ -12,7 +12,7 @@ const initialState: initialProducts = {
 	productList: [],
 }
 
-export const fetchProducts = createAsyncThunk<IProduct[]>('products/fetchProducts', async () => {
+export const fetchProducts = createAsyncThunk<Product[]>('products/fetchProducts', async () => {
 	const response = await fetch(url)
 	const products = await response.json()
 	return products

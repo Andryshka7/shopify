@@ -1,11 +1,11 @@
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 
-type IQuantitySelectorProps = {
+type QuantitySelectorProps = {
 	quantity: number
 	increaseQuantity: () => void
 	decreaseQuantity: () => void
 }
-const QuantitySelector = ({ quantity, increaseQuantity, decreaseQuantity }: IQuantitySelectorProps) => {
+const QuantitySelector = ({ quantity, increaseQuantity, decreaseQuantity }: QuantitySelectorProps) => {
 	const sign = 'flex w-[30px] h-[30px] justify-center items-center'
 
 	const minus = `text-red-600 ${sign}`
