@@ -13,7 +13,7 @@ const Filters = () => {
 
 	const filterClassName = (condition: boolean | number) =>
 		'font-medium text-sm my-2.5 mx-0 transition linear duration-200 cursor-pointer hover:scale-[1.03] ' +
-		(condition ? 'text-black' : 'text-gray-600')
+		(condition ? 'text-black' : 'text-gray-500')
 
 	return (
 		<div className='mt-8 min-w-[200px] h-fit'>
