@@ -5,7 +5,7 @@ import { pushCartItems } from 'redux/cart'
 import Rating from './Rating'
 import QuantitySelector from '../../components/QuantitySelector'
 import ImageContainer from 'components/ImageContainer'
-import Error from 'components/Error'
+import Error from 'components/Layout/Error'
 
 const Product = () => {
 	const params = useParams()

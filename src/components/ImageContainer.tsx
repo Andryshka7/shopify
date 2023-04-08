@@ -4,14 +4,13 @@ interface IImageContainerProps {
 	image: string
 }
 
-const ImageContainer = ({ height, width, image }: IImageContainerProps) => {
-	const divClass = `flex items-center justify-center min-h-[${height}px] min-w-[${width}px]`
-	const imgClass = `max-w-[${width}px] max-h-[${height}px]`
-	return (
-		<div className={divClass}>
-			<img src={image} className={imgClass} alt='' />
-		</div>
-	)
-}
+const ImageContainer = ({ height, width, image }: IImageContainerProps) => (
+	<div
+		className={`flex items-center justify-center`}
+		style={{ minWidth: width + 'px', minHeight: height + 'px' }}
+	>
+		<img src={image} style={{ maxWidth: width + 'px', maxHeight: height + 'px' }} alt='' />
+	</div>
+)
 
 export default ImageContainer

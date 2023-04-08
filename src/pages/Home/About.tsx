@@ -1,6 +1,6 @@
 const About = () => (
-	<div className='bg-gray-100 text-gray-800 pb-10 my-5 mb-0 w-8/12 rounded-lg shadow-lg shadow-gray-300'>
-		<h1 className='mt-2 text-center text-[35px] font-bold mb-4'>About</h1>
+	<div className='py-5 px-20 bg-gradient-to-l from-[#ecececaa] to-[#f0f0f0] text-gray-800 mt-10 w-8/12 rounded-3xl shadow-lg'>
+		<h1 className='text-center text-4xl font-bold mt-2 mb-10'>About Shopify</h1>
 		<p className='mb-5 text-xl'>
 			Shopify is an ecommerce platform founded in 2023 by 17-year-old Andrey Lapchik. Our mission is to
 			make commerce better for everyone, by providing an easy-to-use, scalable, and reliable solution
@@ -15,6 +15,10 @@ const About = () => (
 			That's why we offer a range of features and services, including customizable storefronts, payment
 			processing, shipping and fulfillment, marketing tools, and more. With Shopify, you can focus on
 			what you do best - creating and selling amazing products - while we take care of the rest.
+		</p>
+		<p className='mb-5 text-xl'>
+			Join the thousands of businesses who have already found success with Shopify. Sign up today and
+			start building your online store.
 		</p>
 	</div>
 )

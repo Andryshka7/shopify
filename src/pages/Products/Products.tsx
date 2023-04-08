@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { useAppSelector } from 'hooks/storehooks'
-import Loader from 'components/Loader'
+import Loader from 'components/Layout/Loader'
 import Filters from './Filters'
 import ImageContainer from 'components/ImageContainer'
 import useFilteredProducts from 'hooks/useFilterProducts'

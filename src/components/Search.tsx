@@ -24,8 +24,8 @@ const Search = () => {
 				onChange={(event) => setValue(event.target.value)}
 				onFocus={() => setShowResults(true)}
 				onBlur={(e) => {
-					if (e.relatedTarget?.firstElementChild?.className !== 'search-result')
-						setShowResults(false)
+					const elementClass = e.relatedTarget?.firstElementChild?.className
+					if (elementClass !== 'search-result') setShowResults(false)
 				}}
 			/>
 			<div className={resultsClass}>

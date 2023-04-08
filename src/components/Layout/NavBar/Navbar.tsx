@@ -1,13 +1,12 @@
-import { NavLink } from 'react-router-dom'
 import { useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import { useAppSelector } from 'hooks/storehooks'
-import cartIcon from 'assets/shopping-cart.png'
 import Search from 'components/Search'
+import { CartIcon } from './CartIcon'
 
 const navigators = [
 	{ id: 1, link: '/', name: 'Home' },
 	{ id: 2, link: 'products', name: 'Products' },
-	{ id: 3, link: 'contact', name: 'Contact' },
 ]
 
 const Navbar = () => {
@@ -19,7 +18,7 @@ const Navbar = () => {
 			<NavLink to='/' onClick={() => setSelected(1)}>
 				<h2 className='text-gray-800 text-[25px] font-bold'>Shopify</h2>
 			</NavLink>
-			<div className='flex justify-between w-1/5 min-w-[220px] text-xl'>
+			<div className='flex justify-between w-[11%] min-w-[150px] text-xl'>
 				{navigators.map(({ id, link, name }) => (
 					<NavLink
 						to={link}
@@ -35,19 +34,7 @@ const Navbar = () => {
 				))}
 			</div>
 			<Search />
-			<NavLink
-				className='w-[35px] h-[35px] relative '
-				to={'cart'}
-				style={{ textDecoration: 'none' }}
-				onClick={() => setSelected(null)}
-			>
-				<img src={cartIcon} alt='cart' />
-				{Boolean(cart.length) && (
-					<div className='bg-[red] w-[20px] h-[20px] text-[white] text-[15px] rounded-full flex justify-center items-center absolute bottom-4 left-6 font-semibold'>
-						<span>{cart.length}</span>
-					</div>
-				)}
-			</NavLink>
+			<CartIcon handleOnClick={() => setSelected(null)} />
 		</nav>
 	)
 }
