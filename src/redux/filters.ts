@@ -11,19 +11,13 @@ const filtersSlice = createSlice({
 	name: 'filters',
 	initialState,
 	reducers: {
-		applyCategory: (state, action: PayloadAction<string>) => {
+		applyCategory: ({ categories }, action: PayloadAction<string>) => {
 			const category = action.payload
-			const { categories } = state
-
 			if (categories.includes(category)) {
-				state.categories.splice(categories.indexOf(category), 1)
+				categories.splice(categories.indexOf(category), 1)
 			} else {
-				state.categories.push(category)
+				categories.push(category)
 			}
-		},
-
-		clearCategories: (state) => {
-			state.categories = []
 		},
 
 		applyPriceFilter: (state) => {
@@ -41,6 +35,9 @@ const filtersSlice = createSlice({
 			} else {
 				state.alphabetical_sort = 1
 			}
+		},
+		clearCategories: (state) => {
+			state.categories = []
 		},
 		clearFilters: () => initialState,
 	},

@@ -11,7 +11,7 @@ const Filters = () => {
 
 	const allCategories = Array.from(new Set(productList.map((item) => item.category)))
 
-	const filterClassName = (condition: boolean | number) =>
+	const getClassName = (condition: boolean | number) =>
 		'font-medium text-sm my-2.5 mx-0 transition linear duration-200 cursor-pointer hover:scale-[1.03] ' +
 		(condition ? 'text-black' : 'text-gray-500')
 
@@ -20,12 +20,12 @@ const Filters = () => {
 			<h1 className='text-3xl font-bold mb-3.5'>Filter by</h1>
 
 			<h2 className='font-bold text-xl'>Categories</h2>
-			<p className={filterClassName(!categories.length)} onClick={() => dispatch(clearCategories())}>
+			<p className={getClassName(!categories.length)} onClick={() => dispatch(clearCategories())}>
 				ALL
 			</p>
 			{allCategories.map((category) => (
 				<p
-					className={filterClassName(categories.includes(category))}
+					className={getClassName(categories.includes(category))}
 					onClick={() => dispatch(applyCategory(category))}
 					key={`k${category}`}
 				>
@@ -34,12 +34,12 @@ const Filters = () => {
 			))}
 
 			<h2 className='font-bold text-xl'>Order</h2>
-			<p className={filterClassName(price_sort)} onClick={() => dispatch(applyPriceFilter())}>
+			<p className={getClassName(price_sort)} onClick={() => dispatch(applyPriceFilter())}>
 				PRICE {price_sort === 1 && <BsArrowUp className='inline' />}
 				{price_sort === -1 && <BsArrowDown className='inline' />}
 			</p>
 			<p
-				className={filterClassName(alphabetical_sort)}
+				className={getClassName(alphabetical_sort)}
 				onClick={() => dispatch(applyAlphabeticalFilter())}
 			>
 				NAME

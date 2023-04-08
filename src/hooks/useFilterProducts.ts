@@ -1,4 +1,3 @@
-import { IProduct } from '../types/product'
 import { useAppSelector } from './storehooks'
 
 const useFilteredProducts = () => {

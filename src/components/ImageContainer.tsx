@@ -5,20 +5,11 @@ interface IImageContainerProps {
 }
 
 const ImageContainer = ({ height, width, image }: IImageContainerProps) => {
-	const divStyles = {
-		minWidth: width,
-		minHeight: height,
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-	}
-	const imageStyles = {
-		maxWidth: width,
-		maxHeight: height,
-	}
+	const divClass = `flex items-center justify-center min-h-[${height}px] min-w-[${width}px]`
+	const imgClass = `max-w-[${width}px] max-h-[${height}px]`
 	return (
-		<div style={divStyles} className='image-container'>
-			<img src={image} style={imageStyles} alt='' />
+		<div className={divClass}>
+			<img src={image} className={imgClass} alt='' />
 		</div>
 	)
 }
