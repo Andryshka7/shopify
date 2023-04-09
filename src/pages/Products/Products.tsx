@@ -19,12 +19,13 @@ const Products = () => {
 					<NavLink
 						to={String(id)}
 						className='w-[200px] h-fit inline-block m-5 mb-0 transition duration-200 hover:scale-[1.05]'
-						key={`p${id}`}
-					>
+						key={`p${id}`}>
 						<div>
 							<ImageContainer width={200} height={200} image={image} />
 							<div className='h-[70px] flex justify-between items-center'>
-								<p className='font-medium mx-2.5 line-clamp-2 text-ellipsis'>{title}</p>
+								<p className='font-medium mx-2.5 line-clamp-2 text-ellipsis'>
+									{title}
+								</p>
 								<p className='font-bold text-xl mx-2.5'>${price}</p>
 							</div>
 						</div>

@@ -1,7 +1,7 @@
-import { CartItem } from '../types/cartItem'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { CartItem, CartState } from 'types/StoreTypes'
 
-const initialState: CartItem[] = []
+const initialState: CartState = []
 
 const cartSlice = createSlice({
 	name: 'cart',
@@ -32,4 +32,5 @@ const cartSlice = createSlice({
 })
 
 export default cartSlice.reducer
-export const { pushCartItems, removeCartItem, increaseAmountOfItem, decreaseAmountOfItem } = cartSlice.actions
+export const { pushCartItems, removeCartItem, increaseAmountOfItem, decreaseAmountOfItem } =
+	cartSlice.actions

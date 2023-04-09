@@ -9,7 +9,7 @@ import Conact from 'pages/Home/Contact'
 import Cart from 'pages/Cart/Cart'
 import Error from 'components/Layout/Error'
 import { useAppDispatch } from 'hooks/storehooks'
-import { fetchProducts } from 'redux/products'
+import { fetchProducts } from 'redux/features/products'
 
 const App = () => {
 	const dispatch = useAppDispatch()

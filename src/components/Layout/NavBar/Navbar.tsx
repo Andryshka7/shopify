@@ -6,6 +6,8 @@ import Search from 'components/Search'
 const navigators = [
 	{ id: 1, link: '/', name: 'Home' },
 	{ id: 2, link: 'products', name: 'Products' },
+	{ id: 3, link: '/', name: 'About' },
+	{ id: 4, link: '/', name: 'Contact' },
 ]
 
 const Navbar = () => {
@@ -16,7 +18,7 @@ const Navbar = () => {
 			<NavLink to='/' onClick={() => setSelected(1)}>
 				<h2 className='text-gray-800 text-[25px] font-bold'>Shopify</h2>
 			</NavLink>
-			<div className='flex justify-between w-[11%] min-w-[150px] text-xl'>
+			<div className='flex justify-between w-[30%] min-w-[280px] text-xl'>
 				{navigators.map(({ id, link, name }) => (
 					<NavLink
 						to={link}
@@ -25,8 +27,7 @@ const Navbar = () => {
 						className={`transition duration-200 font-normal ${
 							id === selected ? 'text-[black]' : 'text-gray-500'
 						}`}
-						key={name}
-					>
+						key={name}>
 						{name}
 					</NavLink>
 				))}

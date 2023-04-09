@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { Filters } from '../types/filters'
+import { FiltersState } from 'types/StoreTypes'
 
-const initialState: Filters = {
+const initialState: FiltersState = {
 	categories: [],
 	price_sort: 0,
 	alphabetical_sort: 0,
@@ -44,5 +44,10 @@ const filtersSlice = createSlice({
 })
 
 export default filtersSlice.reducer
-export const { applyCategory, clearCategories, applyPriceFilter, applyAlphabeticalFilter, clearFilters } =
-	filtersSlice.actions
+export const {
+	applyCategory,
+	clearCategories,
+	applyPriceFilter,
+	applyAlphabeticalFilter,
+	clearFilters,
+} = filtersSlice.actions

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { Product } from 'types/product'
+import { Product } from 'types/Product'
 
 interface initialProducts {
 	loading: boolean

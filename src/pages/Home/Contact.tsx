@@ -13,8 +13,7 @@ const Conact = () => {
 	return (
 		<form
 			onSubmit={handleSubmit(submitFn)}
-			className='w-6/12 py-5 px-10 mx-auto mt-20 mb-10 bg-gradient-to-t from-transparent to-slate-200 rounded-xl shadow-lg shadow-gray-300'
-		>
+			className='w-6/12 py-5 px-10 mx-auto mt-16 mb-10 bg-gradient-to-t from-transparent to-slate-200 rounded-xl shadow-lg shadow-gray-300'>
 			<h1 className='text-2xl text-center font-medium mb-5 mx-5'>Contact Us</h1>
 			<div className='flex justify-between'>
 				<input
@@ -28,7 +27,11 @@ const Conact = () => {
 					placeholder='Your email'
 				/>
 			</div>
-			<input {...register('subject')} className={'w-full ' + inputClassName} placeholder='Subject' />
+			<input
+				{...register('subject')}
+				className={'w-full ' + inputClassName}
+				placeholder='Subject'
+			/>
 			<textarea
 				{...register('text')}
 				className={'w-full ' + inputClassName}
