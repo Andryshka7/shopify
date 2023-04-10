@@ -22,7 +22,7 @@ const Conact = () => {
 	}
 
 	const inputStyles = <T extends keyof FormFields>(name: T, width: string) =>
-		`w-${width} h-fit py-2 px-4 text-2xl mt-2 border-2 border-gray-300 rounded-md focus:outline-none ${
+		`${width} h-fit py-2 px-4 text-2xl mt-2 border-2 border-gray-300 rounded-md focus:outline-none ${
 			formState.errors[name] ? 'border-red-500' : 'focus:border-blue-500'
 		}`
 
@@ -36,7 +36,7 @@ const Conact = () => {
 			<div className='flex justify-between'>
 				<input
 					{...register('name', { required: true })}
-					className={inputStyles('name', '[49%]')}
+					className={inputStyles('name', 'w-[49%]')}
 					placeholder='Your name'
 				/>
 				<input
@@ -47,18 +47,18 @@ const Conact = () => {
 							message: 'Not a valid email!',
 						},
 					})}
-					className={inputStyles('email', '[49%]')}
+					className={inputStyles('email', 'w-[49%]')}
 					placeholder='Your email'
 				/>
 			</div>
 			<input
 				{...register('subject', { required: true })}
-				className={inputStyles('subject', 'full')}
+				className={inputStyles('subject', 'w-full')}
 				placeholder='Subject'
 			/>
 			<textarea
 				{...register('message', { required: true })}
-				className={inputStyles('message', 'full')}
+				className={inputStyles('message', 'w-full')}
 				placeholder='Message text'
 			/>
 			<button className='block h-[40px] w-full mt-3 mx-auto bg-blue-500 text-white text-xl font-medium rounded-md'>
