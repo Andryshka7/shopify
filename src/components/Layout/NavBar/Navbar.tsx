@@ -1,39 +1,33 @@
-import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link'
 import CartIcon from './CartIcon'
 import Search from 'components/Search'
 
-const navigators = [
-	{ id: 1, link: '/', name: 'Home' },
-	{ id: 2, link: 'products', name: 'Products' },
-	{ id: 3, link: '/', name: 'About' },
-	{ id: 4, link: '/', name: 'Contact' },
-]
-
 const Navbar = () => {
-	const [selected, setSelected] = useState<number | null>(1)
+	const navlinkStyle = 'transition duration-200 font-normal text-gray-500 hover:text-black'
+	const scrollFn = (el: HTMLElement) => el.scrollIntoView({ behavior: 'smooth', block: 'center' })
 
 	return (
 		<nav className='flex justify-around items-center py-4'>
-			<NavLink to='/' onClick={() => setSelected(1)}>
-				<h2 className='text-gray-800 text-[25px] font-bold'>Shopify</h2>
+			<NavLink to='/'>
+				<h2 className='text-gray-800 text-2xl font-bold'>Shopify</h2>
 			</NavLink>
-			<div className='flex justify-between w-[30%] min-w-[280px] text-xl'>
-				{navigators.map(({ id, link, name }) => (
-					<NavLink
-						to={link}
-						style={{ color: id === selected ? 'black' : '' }}
-						onClick={() => setSelected(id)}
-						className={`transition duration-200 font-normal ${
-							id === selected ? 'text-[black]' : 'text-gray-500'
-						}`}
-						key={name}>
-						{name}
-					</NavLink>
-				))}
+			<div className='flex justify-between w-1/4 min-w-[280px] text-xl'>
+				<NavLink to={'/'} className={navlinkStyle}>
+					Home
+				</NavLink>
+				<NavLink to={'/products'} className={navlinkStyle}>
+					Products
+				</NavLink>
+				<HashLink to={'/#about'} className={navlinkStyle} scroll={scrollFn}>
+					About
+				</HashLink>
+				<HashLink to={'/#contact'} className={navlinkStyle} scroll={scrollFn}>
+					Contact
+				</HashLink>
 			</div>
 			<Search />
-			<CartIcon handleOnClick={() => setSelected(null)} />
+			<CartIcon />
 		</nav>
 	)
 }

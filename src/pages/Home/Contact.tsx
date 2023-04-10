@@ -1,40 +1,64 @@
 import { useForm } from 'react-hook-form'
+import emailjs from 'emailjs-com'
+
+type FormFields = {
+	name: string
+	email: string
+	subject: string
+	message: string
+}
 
 const Conact = () => {
-	const { register, handleSubmit } = useForm()
+	const { register, handleSubmit, formState, reset } = useForm<FormFields>({ mode: 'onBlur' })
 
-	const submitFn = (data: any) => {
-		console.log(data)
+	const submitFn = async (data: FormFields) => {
+		reset()
+		try {
+			await emailjs.send('service_8iep0vs', 'template_tg7xder', data, 'AHSBJcxNmS8h9nJaV')
+			console.log('Message sent')
+		} catch (error) {
+			console.log('An error occured while sending message:', error)
+		}
 	}
 
-	const inputClassName =
-		'h-fit py-2 px-4 text-2xl mt-2 border-2 border-gray-300 rounded-md focus:outline-none focus:border-blue-500'
+	const inputStyles = <T extends keyof FormFields>(name: T, width: string) =>
+		`w-${width} h-fit py-2 px-4 text-2xl mt-2 border-2 border-gray-300 rounded-md focus:outline-none ${
+			formState.errors[name] ? 'border-red-500' : 'focus:border-blue-500'
+		}`
 
 	return (
 		<form
 			onSubmit={handleSubmit(submitFn)}
-			className='w-6/12 py-5 px-10 mx-auto mt-16 mb-10 bg-gradient-to-t from-transparent to-slate-200 rounded-xl shadow-lg shadow-gray-300'>
+			className='w-6/12 py-5 px-10 mx-auto mt-24 mb-16 bg-gradient-to-t from-transparent to-slate-200 rounded-xl shadow-lg shadow-gray-300'
+			id='contact'
+		>
 			<h1 className='text-2xl text-center font-medium mb-5 mx-5'>Contact Us</h1>
 			<div className='flex justify-between'>
 				<input
-					{...register('name')}
-					className={'w-[49%] ' + inputClassName}
+					{...register('name', { required: true })}
+					className={inputStyles('name', '[49%]')}
 					placeholder='Your name'
 				/>
 				<input
-					{...register('email')}
-					className={'w-[49%] ' + inputClassName}
+					{...register('email', {
+						required: true,
+						pattern: {
+							value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,}$/i,
+							message: 'Not a valid email!',
+						},
+					})}
+					className={inputStyles('email', '[49%]')}
 					placeholder='Your email'
 				/>
 			</div>
 			<input
-				{...register('subject')}
-				className={'w-full ' + inputClassName}
+				{...register('subject', { required: true })}
+				className={inputStyles('subject', 'full')}
 				placeholder='Subject'
 			/>
 			<textarea
-				{...register('text')}
-				className={'w-full ' + inputClassName}
+				{...register('message', { required: true })}
+				className={inputStyles('message', 'full')}
 				placeholder='Message text'
 			/>
 			<button className='block h-[40px] w-full mt-3 mx-auto bg-blue-500 text-white text-xl font-medium rounded-md'>
