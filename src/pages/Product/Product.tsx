@@ -7,6 +7,7 @@ import QuantitySelector from '../../components/QuantitySelector'
 import ImageContainer from 'components/ImageContainer'
 import Error from 'components/Layout/Error'
 import Loader from 'components/Layout/Loader'
+import { showAlert } from 'redux/features/alert'
 
 const Product = () => {
 	const params = useParams()
@@ -39,7 +40,13 @@ const Product = () => {
 				<div className='w-full flex justify-between mt-3.5'>
 					<button
 						className='text-red-700 text-xl py-2 px-9 cursor-pointer border border-red-700'
-						onClick={() => dispatch(pushCartItems({ id, amount: quantity }))}>
+						onClick={() => {
+							dispatch(
+								showAlert(`Added ${quantity} ${quantity > 1 ? 'items' : 'item'} to cart`)
+							)
+							dispatch(pushCartItems({ id, amount: quantity }))
+						}}
+					>
 						Add to cart
 					</button>
 					<button className='text-xl py-2 px-9 cursor-pointer bg-red-700 text-white border-none mr-2.5'>

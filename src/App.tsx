@@ -10,6 +10,7 @@ import Cart from 'pages/Cart/Cart'
 import Error from 'components/Layout/Error'
 import { useAppDispatch } from 'hooks/storehooks'
 import { fetchProducts } from 'redux/features/products'
+import Alert from 'components/Layout/Alert'
 
 const App = () => {
 	const dispatch = useAppDispatch()
@@ -22,6 +23,7 @@ const App = () => {
 		<div className='min-h-screen flex flex-col'>
 			<BrowserRouter>
 				<Navbar />
+				<Alert />
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='products'>

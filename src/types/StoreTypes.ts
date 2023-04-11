@@ -1,5 +1,11 @@
 import { Product } from 'types/Product'
 
+export interface AlertState {
+	text: string
+	show: boolean
+	timeout: number
+}
+
 export interface ProductsState {
 	loading: boolean
 	productList: Product[]
